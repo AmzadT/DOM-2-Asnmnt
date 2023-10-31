@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIN & MAX</title>
+
+    <style>
+       
+       #container{
+          margin: auto;
+          height: 1200px;
+          width: 60%;
+       }
+        #main{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #main > div > input{
+            height: 100px;
+            width: 150px;
+        }
+
+        #main > div{
+            margin-top: 50px;
+        }
+
+        h1{
+            margin-left: 45px;
+        }
+
+        .min{
+            background-color: red;
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .max{
+            background-color: rgb(9, 170, 9);
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .score{
+            margin: auto;
+            text-align: center;
+        }
+
+        .score > input{
+            height: 100px;
+            width: 300px;
+            background-color: rgb(179, 176, 176);
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .score > h1{
+            margin-right: 20px;
+        }
+
+        .number{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            width: 30%;
+            margin: auto;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .number > button{
+            width: 80px;
+            height: 80px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        .zero > button{ 
+            background-color: rgb(117, 5, 98);
+            color: white;
+            width: 80px;
+            height: 80px;
+            font-size: 30px;
+            font-weight: 700;
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .green{
+            background-color: rgb(87, 126, 11);
+        }
+
+        .orange{
+            background-color: rgb(235, 81, 9);
+        }
+
+        .enter{
+            margin: auto;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .enter > button{
+            width: 300px;
+            height: 80px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 30px;
+            background-color: black;
+            color: white;
+        }
+
+        input{
+            cursor: text;
+        }
+
+        button{
+            cursor: pointer;
+        }
+
+    </style>
+   
+</head>
+<body>
+   
+    <div id="container">
+
+        <div id="main">
+
+            <div>
+                <input class="min" type="number" value="43">
+                <h1>MIN</h1>
+            </div>
+    
+            <div>
+                <input class="max" type="number" value="2019">
+                <h1>MAX</h1>
+            </div>
+
+       </div>
+
+       <div class="score">
+            <h1>SCORE</h1>
+            <input type="number" id="result">
+       </div>
+
+       <div class="number">
+
+            <button class="green">1</button>
+            <button class="orange">2</button>
+            <button class="green">3</button>
+            <button class="orange">4</button>
+            <button class="orange">5</button>
+            <button class="orange">6</button>
+            <button class="green">7</button>
+            <button class="orange">8</button>
+            <button class="green">9</button>
+           
+       </div>
+
+       <div class="zero">
+          <button>0</button>
+       </div>
+
+       <div class="enter">
+           <button id="btn">ENTER</button>
+       </div>
+    
+    </div>
+   
+</body>
+</html>
+
+
+
+<script>
+
+var btn = document.getElementById("btn");
+var min = document.querySelector(".min");
+var max = document.querySelector(".max");
+var result = document.getElementById("result");
+
+var numberButtons = document.querySelectorAll(".number > button", ".zero > button");
+
+for (var i = 0; i < numberButtons.length; i++) 
+{
+  numberButtons[i].addEventListener("click", function () 
+  {
+    result.value += this.innerText; 
+  });
+}
+
+document.getElementById("btn").addEventListener("click", function () 
+{
+  if (Number(result.value) < Number(min.value)) 
+  {
+    min.value = result.value;
+  }
+  if (Number(result.value) > Number(max.value))
+  {
+     max.value = result.value
+  }
+  if (result.value > max.value)
+  {
+    result.value = "";
+  }
+  else
+  {
+    result.value = "";
+  }
+});
+
+</script>
