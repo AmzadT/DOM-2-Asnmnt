@@ -44,7 +44,7 @@
 
         button:hover{
             color: aqua;
-            background-color: black;
+            background-color: rgb(53, 51, 51);
         }
 
         label:hover{
@@ -59,9 +59,9 @@
         <h1>BMI Calculator</h1>
 
         <label for="weight">Weight (kg):</label>
-        <input type="number" id="weight" step="0.01" placeholder="Enter Weight Here"><br><br>
+        <input type="number" id="weight" step="0.01" placeholder="Enter Weight Here..."><br><br>
         <label for="height">Height (m):</label>
-        <input type="number" id="height" step="0.01" placeholder="Enter Height Here"><br><br>
+        <input type="number" id="height" step="0.01" placeholder="Enter Height Here..."><br><br>
         <button onclick="calculateBMI()">Calculate BMI</button><br><br>
         <div id="result"></div>
 
@@ -82,13 +82,16 @@
                 if (bmi <= 18.4) 
                 {
                     resultText += "Underweight";
-                } else if (bmi >= 18.5 && bmi <= 24.9) 
+                } 
+                else if (bmi >= 18.5 && bmi <= 24.9) 
                 {
                     resultText += "Normal Weight";
-                } else if (bmi >= 25 && bmi <= 29.9) 
+                } 
+                else if (bmi >= 25 && bmi <= 29.9) 
                 {
                     resultText += "Overweight";
-                } else 
+                } 
+                else 
                 {
                     resultText += "Obese";
                 }
